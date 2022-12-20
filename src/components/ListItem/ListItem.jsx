@@ -21,8 +21,12 @@ export const ListItem = ({ name, number, contactId }) => {
 
   const onUpdateContact = event => {
     const id = event.currentTarget.parentElement.id;
-    dispatch(contactIdModal(id));
+    console.log(contactId);
+    console.log(modalId);
+    console.log(id);
     dispatch(isOpen('editContact'));
+    dispatch(contactIdModal(id));
+ 
   };
 
   return (
