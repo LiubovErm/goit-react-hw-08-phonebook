@@ -18,7 +18,10 @@ export const contactsApi = createApi({
     tagTypes: ['contacts'],
     endpoints: builder => ({
         getContacts: builder.query({
-            query: () => '/contacts',
+            query: () => ({
+                url: '/contacts',
+                method: 'get',
+              }),
             providesTags: ['contacts'],
         }),
 
@@ -32,8 +35,8 @@ export const contactsApi = createApi({
         }),
 
         deleteContact: builder.mutation({
-            query: contactId => ({
-                url: `/contacts/${contactId}`,
+            query: id => ({
+                url: `/contacts/${id}`,
                 method: 'DELETE',
             }),
             invalidatesTags: ['contacts'],

@@ -4,6 +4,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 export const NavBar = () => {
   const { isLoggedIn } = useAuth(); 
+  
     return (
        <Box>  
         <NavigationLink to="/">Home</NavigationLink>

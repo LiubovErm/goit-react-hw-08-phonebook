@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getFilter } from '../../redux/contactSlice';
+import { getFilter } from '../../redux/filterSlice';
 import { useGetContactsQuery } from '../../redux/contactsApi';
 import { ListItem } from '../ListItem/ListItem'
 import { ContactList, Message } from './List.styled';
@@ -23,7 +23,7 @@ export const List = () => {
           return (
             <ListItem
               key={id}
-              contactId={id}
+              id={id}
               name={name}
               number={number}
             />

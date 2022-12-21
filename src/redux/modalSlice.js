@@ -12,12 +12,11 @@ export const modalSlice = createSlice({
     isOpen: (state, action) => {
       state.isOpen = action.payload;
     },
-    contactIdModal: (state, action) => {
+    contactId: (state, action) => {
       state.contactId = action.payload;
     },
   },
 });
 
-export const { isOpen, contactIdModal } = modalSlice.actions;
-
-export const ModalReducer = modalSlice.reducer;
+export const { isOpen, contactId } = modalSlice.actions;
+// export const ModalReducer = modalSlice.reducer;
