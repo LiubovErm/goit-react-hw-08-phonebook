@@ -13,6 +13,8 @@ export const ListItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
   const modalOpen = useSelector(state => state.modal.isOpen);
   const modalId = useSelector(state => state.modal.contactId);
+  console.log(modalId);
+  console.log(modalOpen);
 
   const onDeleteContact = event => {
     deleteContact(event.currentTarget.parentElement.id);
@@ -21,10 +23,11 @@ export const ListItem = ({ name, number, id }) => {
 
   const onUpdateContact = event => {
     const id = event.currentTarget.parentElement.id;
-    console.log(modalId);
-    console.log(id);
-    dispatch(isOpen('editContact'));
     dispatch(contactId(id));
+    // console.log(modalId);
+    // console.log(id);
+    dispatch(isOpen('editContact'));
+ 
   };
 
   return (
