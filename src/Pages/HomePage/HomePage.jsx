@@ -2,8 +2,7 @@ import { Box } from '../../components/Box/Box'
 import { MessageBox, Message} from './HomePage.styled';
 
 
-const HomePage = () => {
-
+export default function HomePage() {
   return (
     <Box>
       <MessageBox>
@@ -13,4 +12,3 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;

@@ -1,7 +1,7 @@
 import { AuthLink } from './AuthMenu.styled';
 
 const navLinks = [
-  { href: 'logIn', text: 'Login' },
+  { href: 'login', text: 'Login' },
   { href: 'register', text: 'Registration' },
 ];
 
