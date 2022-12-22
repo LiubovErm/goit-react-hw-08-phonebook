@@ -22,24 +22,14 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-// const middleware = [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-// ];
-
 export const store = configureStore({
     reducer: {
         [contactsApi.reducerPath]: contactsApi.reducer,
         auth: persistReducer(authPersistConfig, authReducer),
         [modalSlice.name]: modalSlice.reducer,
         filter: filterSlice.reducer,
-        // modal: modalSlice.reducer,
     },
-    // middleware,
-    // devTools: process.env.NODE_ENV === 'development',
+
       middleware: getDefaultMiddleware => [
          ...getDefaultMiddleware({
         serializableCheck: {
