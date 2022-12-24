@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
+// import { Form, Field } from 'formik';
 
 export const FormBox = styled.div`
   position: absolute;
@@ -8,7 +8,7 @@ export const FormBox = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const StyleUpdateForm = styled(Form)`
+export const StyleUpdateForm = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -23,7 +23,7 @@ export const Label = styled.label`
   font-size: ${props => props.theme.fontSizes.s};
 `;
 
-export const Input = styled(Field)`
+export const Input = styled.input`
   display: flex;
   flex-direction: column;
   width: 300px;

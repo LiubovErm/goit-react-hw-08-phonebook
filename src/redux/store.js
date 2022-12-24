@@ -3,7 +3,6 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './authSlice';
 import { contactsApi } from './contactsApi'
 import { filterSlice } from './filterSlice'
-import { modalSlice } from './modalSlice';
 import {
   persistStore,
   persistReducer,
@@ -26,7 +25,6 @@ export const store = configureStore({
     reducer: {
         [contactsApi.reducerPath]: contactsApi.reducer,
         auth: persistReducer(authPersistConfig, authReducer),
-        [modalSlice.name]: modalSlice.reducer,
         filter: filterSlice.reducer,
     },
 

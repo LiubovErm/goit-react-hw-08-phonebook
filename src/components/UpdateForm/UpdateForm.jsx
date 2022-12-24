@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux';
-import { useUpdateContactMutation } from '../../redux/contactsApi';
-import { isOpen } from '../../redux/modalSlice';
+import { useState } from 'react';
+import { useUpdateContactMutation, useGetContactsQuery } from '../../redux/contactsApi';
 import {
   FormBox,
   StyleUpdateForm,
@@ -9,16 +8,23 @@ import {
   CloseButton,
   EditButton,
 } from './UpdateForm.styled';
-import { Formik } from 'formik';
 import { GrClose } from 'react-icons/gr';
-import { useState } from 'react';
 
-export const UpdateForm = ({ initialFormValues }) => {
-  const [name, setName] = useState(initialFormValues[0]?.name);
-  const [number, setNumber] = useState(initialFormValues[0]?.number);
 
+export const UpdateForm = ({ id, toggleModal  }) => {
+  const { data } = useGetContactsQuery();
   const [editContact] = useUpdateContactMutation();
-  const dispatch = useDispatch();
+
+  const [name, setName] = useState(() => {
+    const contact = data?.find(contact => contact.id === id);
+    return contact?.name;
+  });
+
+  const [number, setNumber] = useState(() => {
+    const contact = data?.find(contact => contact.id === id);
+    return contact?.number;
+  });
+
 
   const handleChange = event => {
     const contact = event.target;
@@ -32,26 +38,24 @@ export const UpdateForm = ({ initialFormValues }) => {
     }
   };
 
-  const onEditContact = async ({ resetForm }) => {
+   const onEditContact = async event => {
+    event.preventDefault();
+    const value = { id, name, number };
     try {
-      console.log('initialFormValues', initialFormValues);
-      await editContact({ id: initialFormValues[0].id, name, number });
-      resetForm();
-      dispatch(isOpen(false));
+      await editContact(value);
     } catch (error) {
       console.log(error);
-      dispatch(isOpen(false));
     }
-  };
-
+    toggleModal();
+   };
+  
   const onClose = () => {
-    dispatch(isOpen(false));
+    toggleModal();
   };
 
   return (
     <FormBox>
-      <Formik initialValues={initialFormValues} onSubmit={onEditContact}>
-        <StyleUpdateForm>
+        <StyleUpdateForm onSubmit={onEditContact}>
           <Label>
             Name
             <Input
@@ -69,10 +73,12 @@ export const UpdateForm = ({ initialFormValues }) => {
               value={number}
               onChange={handleChange}
             />
-          </Label>
-          <EditButton type="submit">Update contact</EditButton>
-        </StyleUpdateForm>
-      </Formik>
+        </Label>
+        
+        <EditButton type="submit">Update contact</EditButton>
+        
+      </StyleUpdateForm>
+      
       <CloseButton onClick={onClose}>
         <GrClose />
       </CloseButton>

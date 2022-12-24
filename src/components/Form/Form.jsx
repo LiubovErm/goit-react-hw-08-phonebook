@@ -41,9 +41,10 @@ export function Form () {
     } else {
       addContact(newContact);
       Notiflix.Notify.success(`Добавлено`)
+      reset();
     }
  
-    reset();
+    
   };
 
   const reset = () => {

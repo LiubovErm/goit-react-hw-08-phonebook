@@ -1,15 +1,12 @@
 import { BackDrop } from './Modal.styled';
-import { useGetContactsQuery } from '../../redux/contactsApi';
 import { UpdateForm } from '../UpdateForm/UpdateForm';
 
-export const Modal = () => {
-  const { data: contact } = useGetContactsQuery();
+export const Modal = ({ id, toggleModal }) => {
 
   return (
     <>
       <BackDrop>
-        {contact &&
-          <UpdateForm initialFormValues={contact} />}
+        <UpdateForm toggleModal={toggleModal} id={id} />
       </BackDrop>
     </>
   );

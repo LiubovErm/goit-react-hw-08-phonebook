@@ -18,6 +18,7 @@ export const Link = styled.a`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   max-width: 100px;
   padding: ${props => props.theme.space[3]}px;
   background-color: ${props => props.theme.colors.green}; 

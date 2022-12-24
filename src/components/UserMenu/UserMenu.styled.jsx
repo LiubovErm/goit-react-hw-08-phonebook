@@ -5,11 +5,16 @@ export const Wrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  min-width: 100px;
-  background-color: blue;
-  &:hover,
+  cursor: pointer;
+  width: 100px;
+  border: none;
+  border-radius: ${props => props.theme.radii.normal};
+  padding: ${props => props.theme.space[3]}px;
+  background-color:${props => props.theme.colors.green};
+  color:${props => props.theme.colors.white};
+  :hover,
   :focus {
-    background-color: green;
+    box-shadow: ${props => props.theme.shadows.normal};
   }
 `;
 
