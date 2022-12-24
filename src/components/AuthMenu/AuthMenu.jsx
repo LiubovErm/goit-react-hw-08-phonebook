@@ -1,4 +1,5 @@
 import { AuthLink } from './AuthMenu.styled';
+import { Box } from '../Box/Box';
 
 const navLinks = [
   { href: 'login', text: 'Login' },
@@ -7,12 +8,12 @@ const navLinks = [
 
 export const AuthMenu = () => {
   return (
-    <>
+    <Box>
       {navLinks.map(({ href, text }) => (
         <AuthLink to={href} key={text} >
           {text}
         </AuthLink>
       ))}
-    </>
+    </Box>
   );
 };

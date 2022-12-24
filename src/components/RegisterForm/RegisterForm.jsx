@@ -31,8 +31,9 @@ export const RegisterForm = () => {
         onSubmit={handleSubmit}
         display="flex"
         flexDirection="column"
-        maxWidth={500}
+        maxWidth={400}
         mx="auto"
+        mt="20px"
       >
         <Label>
           {' '}
@@ -60,13 +61,14 @@ export const RegisterForm = () => {
             type="password"
             id="password"
           />
-        </Label>
-
+      </Label>
+      
+        <Box display='flex'justifyContent="space-between" alignItems="center" >
         <Button type="submit">Sign Up</Button>
         <Link href="/goit-react-hw-08-phonebook/login">
           Already have an account? Sign in
         </Link>
-
+        </Box>
       </Box>
 
   );

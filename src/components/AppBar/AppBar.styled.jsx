@@ -6,4 +6,7 @@ export const Header = styled.header`
   align-items: center;
   margin-bottom: ${props => props.theme.space[3]}px;
   border-bottom: 1px solid #2a363b;
+  height: 60px;
+  max-width: 800px;
+  margin: 0 auto;
 `;

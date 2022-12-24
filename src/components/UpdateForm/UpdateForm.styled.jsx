@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { Form, Field } from 'formik';
 
 export const FormBox = styled.div`
   position: absolute;
@@ -15,7 +14,7 @@ export const StyleUpdateForm = styled.form`
   width: 370px;
   border-radius: ${props => props.theme.radii.normal};
   padding: ${props => props.theme.space[4]}px;
-  background-color: #C55F05;
+  background-color: ${props => props.theme.colors.orange};
 `;
 
 export const Label = styled.label`

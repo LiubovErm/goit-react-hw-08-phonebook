@@ -7,9 +7,17 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  max-width: 500px;
+    cursor: pointer;
+  max-width: 400px;
+  border: 1px solid #2a363b;
   margin-top: ${props => props.theme.space[3]}px;
   padding: ${props => props.theme.space[3]}px;
+  border-radius: ${props => props.theme.radii.normal};
+  &:hover,
+  :focus {
+    border:1px solid #0848d1;
+    outline:none;
+  }
 `;
 
 export const Link = styled.a`
@@ -19,9 +27,9 @@ export const Link = styled.a`
 
 export const Button = styled.button`
   cursor: pointer;
-  max-width: 100px;
+  width: 150px;
   padding: ${props => props.theme.space[3]}px;
-  background-color: ${props => props.theme.colors.green}; 
+  background-color: ${props => props.theme.colors.greenpr}; 
   border-radius: ${props => props.theme.radii.normal};
   color:${props => props.theme.colors.white};
   border: none;

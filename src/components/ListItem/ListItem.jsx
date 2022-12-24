@@ -38,13 +38,13 @@ export const ListItem = ({ name, number, id }) => {
 
         <ButtonEdit
           type="button"
-          onClick={toggleModal}
-          disabled={isLoading}>
+          onClick={toggleModal}>
           <ImPencil2 />
         </ButtonEdit>
 
         <ButtonDelete
           type="button"
+          disabled={isLoading}
           onClick={onDeleteContact}>
           <ImCross />
         </ButtonDelete>
